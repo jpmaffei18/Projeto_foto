@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Flappy Bird</title>
+</head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #70c5ce;
+}
+
+#game-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #e0e0e0;
+}
+
+#bird {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    background-color: #f39c12;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#pipe {
+    position: absolute;
+    width: 60px;
+    height: 300px;
+    background-color: #27ae60;
+    bottom: 0;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+<body>
+    <div id="game-container">
+        <div id="bird"></div>
+        <div id="pipe"></div>
+    </div>
+    <script src="script.js">const bird = document.getElementById('bird');
+const pipe = document.getElementById('pipe');
+let gameSpeed = 2;
+let isGameOver = false;
+
+function jump() {
+    if (!isGameOver) {
+        bird.style.animation = 'jump 0.5s';
+        setTimeout(() => {
+            bird.style.animation = '';
+        }, 500);
+    }
+}
+
+document.addEventListener('keydown', jump);
+
+function gameLoop() {
+    const birdTop = parseInt(getComputedStyle(bird).top);
+    const pipeLeft = parseInt(getComputedStyle(pipe).left);
+
+    if (birdTop >= 370 || pipeLeft <= 40 && pipeLeft >= 0 && birdTop <= 250) {
+        isGameOver = true;
+        alert('Game Over');
+    }
+
+    if (!isGameOver) {
+        const newPipeLeft = pipeLeft - gameSpeed;
+        if (newPipeLeft <= -60) {
+            pipe.style.left = '100%';
+        } else {
+            pipe.style.left = newPipeLeft + 'px';
+        }
+        requestAnimationFrame(gameLoop);
+    }
+}
+
+gameLoop();
+</script>
+</body>
+</html>

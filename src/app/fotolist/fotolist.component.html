@@ -1,0 +1,20 @@
+<div class="container justify-content-center mt-5 mb-5" style="background-color: darkred; border-radius: 15px; padding-bottom: 15px; padding-right: -50px;">
+    <div class="row ">
+        <div class="col-4" *ngFor="let foto of minhasFotos" >
+            <div class="card mt-3 shadow" style="width: 18rem; background-color: black; color:white; border-top-right-radius: 0; border-top-left-radius: 0; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border: solid 3px black">
+                <!-- <img class="card-img-top" [src]="foto.url" alt="Imagem de capa do card"> -->
+                <!-- Usando o componente foto para fazer reponsividade nas imagens -->
+                <app-foto [imagem]="foto.url" ></app-foto>
+                <div class="card-body">
+                <h5 class="card-title text-center">{{foto.titulo}}</h5>
+
+                <!-- Botão Excluir -->
+                <a href="#" class="btn btn-danger btn-block shadow d-flex justify-content-center" (click)="deletar(foto.id)">{{btnButtom}}</a>
+
+                <!-- Botão de Atualizar     -->
+                <a [routerLink]="['/update', foto.id]" class="btn btn-warning mt-3 btn-block shadow d-flex justify-content-center">Editar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

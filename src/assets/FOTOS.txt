@@ -1,0 +1,34 @@
+{
+  "fotos": [
+    {
+      "url": "https://cdn.pixabay.com/photo/2016/11/29/04/19/ocean-1867285_1280.jpg",
+      "titulo": "Mar",
+      "id": 3
+    },
+    {
+      "url": "https://cdn.pixabay.com/photo/2023/07/07/16/59/insect-8113074_1280.jpg",
+      "titulo": "Abelha",
+      "id": 2
+    },
+    {
+      "url": "https://cdn.pixabay.com/photo/2021/05/23/07/16/black-hole-6275339_1280.jpg",
+      "titulo": "Buraco Negro",
+      "id": 4
+    },
+    {
+      "url": "https://cdn.pixabay.com/photo/2022/07/09/11/27/capybara-7310694_1280.jpg",
+      "titulo": "Capivara",
+      "id": 5
+    },
+    {
+      "url": "https://cdn.pixabay.com/photo/2016/11/18/12/49/bicycle-1834265_1280.jpg",
+      "titulo": "Bicicleta",
+      "id": 6
+    },
+    {
+      "url": "https://cdn.pixabay.com/photo/2016/11/18/12/14/owl-1834152_1280.jpg",
+      "titulo": "Coruja",
+      "id": 7
+    }
+  ]
+}
